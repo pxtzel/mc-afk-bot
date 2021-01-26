@@ -1,20 +1,12 @@
-// OSX:
-// - have nodejs (default works on OSX)
-// - npm install mineflayer
-// - edit this script, set server, change port if not default
-// - username/pass are minecraft login email address + password
-//
-// set moveinterval to number of seconds between movements. This is also movement duration.
-//
-// - Log in using normal client, empty inventory (optional), put food in first inventory slot
-// - Go to a safe area (inside, well lighted)
-// - Log out of normal minecraft
-// - Start this script and wait (preferably use normal IP, running remove often doesn't work):
-// node minecraft_idlebot.js
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
 var mineflayer = require("mineflayer");
 let joined = false;
-var host = "peaklime.aternos.me";
+var host = "mc.dantoast.xyz";
 var port = 25565;
 var username = "PeakBot";
 var password = "";
@@ -27,6 +19,12 @@ var bota = mineflayer.createBot({
 });
 var pi = 3.14159;
 events(bota);
+function input(bot) {
+  rl.question(":", function (name) {
+    bot.chat(name);
+    input(bot);
+  });
+}
 function events(bot) {
   bot.on("time", function () {
     var yaw = Math.random() * pi - 0.5 * pi;
@@ -51,6 +49,7 @@ function events(bot) {
     console.log("Joined");
     await setTimeout[Object.getOwnPropertySymbols(setTimeout)[0]](3000);
     joined = true;
+    input(bot);
   });
   bot.on("end", async () => {
     console.log("Disconnected.");
