@@ -31,6 +31,10 @@ function events(bot) {
     var pitch = Math.random() * pi - 0.5 * pi;
     bot.look(yaw, pitch, false);
   });
+  bot.on("chat", (user, message) => {
+    if (user == username) return;
+    console.log(message);
+  });
   bot.on("playerJoined", (player) => {
     if (!joined) return;
     if (player.username == username) return;
@@ -55,7 +59,9 @@ function events(bot) {
     console.log("Disconnected.");
     joined = false;
     await setTimeout[Object.getOwnPropertySymbols(setTimeout)[0]](3000);
-    bot.quit();
+    try {
+      bot.quit();
+    } catch (e) {}
     bot = mineflayer.createBot({
       host: host,
       port: port, // optional
