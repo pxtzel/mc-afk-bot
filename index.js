@@ -19,13 +19,13 @@ var bota = mineflayer.createBot({
 });
 var pi = 3.14159;
 events(bota);
-function input(bot) {
-  rl.question(":", function (name) {
-    bot.chat(name);
-    input(bot);
-  });
-}
 function events(bot) {
+  function input(bot) {
+    rl.question(":", function (name) {
+      bot.chat(name);
+      input(bot);
+    });
+  }
   bot.on("time", function () {
     var yaw = Math.random() * pi - 0.5 * pi;
     var pitch = Math.random() * pi - 0.5 * pi;
