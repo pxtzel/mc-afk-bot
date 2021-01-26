@@ -6,7 +6,7 @@ const rl = readline.createInterface({
 
 var mineflayer = require("mineflayer");
 let joined = false;
-var host = "peaklime.aternos.me";
+var host = "mc.dantoast.xyz";
 var port = 25565;
 var username = "PeakBot";
 var password = "";
@@ -33,7 +33,8 @@ function events(bot) {
   });
   bot.on("chat", (user, message) => {
     if (user == username) return;
-    console.log(message);
+    console.log(user + ":" + message);
+    command(message, bot);
   });
   bot.on("playerJoined", (player) => {
     if (!joined) return;
@@ -44,7 +45,7 @@ function events(bot) {
   bot.on("playerLeft", (player) => {
     if (player.username == username) return;
     let name = player.username;
-    bot.chat("Bye " + name);
+    console.log(name + " left");
   });
   bot.on("kicked", (reason) => {
     console.log("Kicked for: " + reason);
@@ -64,13 +65,23 @@ function events(bot) {
     } catch (e) {}
     bot = mineflayer.createBot({
       host: host,
-      port: port, // optional
+      port: port,
       username: username,
       password: password,
     });
-    console.log("reconnected.");
+    console.log("Reconnected");
     events(bot);
-    await setTimeout[Object.getOwnPropertySymbols(setTimeout)[0]](3000);
+    await setTimeout[Object.getOwnPropertySymbols(setTimeout)[0]](2000);
     joined = true;
   });
+  function command(message, bot) {
+    const msg = message.toLowerCase();
+    if (!msg.startsWith("!")) return;
+    const args = message.slice(1).trim().split(/ +/);
+    const cmd = args.shift().toLowerCase()
+    if (cmd == "say") {
+      if(!args[0])return bot.chat("Say what?")
+      bot.chat(args.join(" "));
+    }
+  }
 }
