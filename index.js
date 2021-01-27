@@ -27,7 +27,6 @@ function events(bot) {
       bot.chat(name);
       input(bot);
     });
-    n;
   }
   bot.on("time", function () {
     bot.setControlState("jump", true);
