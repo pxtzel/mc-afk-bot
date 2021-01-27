@@ -17,6 +17,7 @@ var bota = mineflayer.createBot({
   username: username,
   password: password,
 });
+bota;
 var pi = 3.14159;
 events(bota);
 function events(bot) {
@@ -26,8 +27,11 @@ function events(bot) {
       bot.chat(name);
       input(bot);
     });
+    n;
   }
-  bot.on("time", function () {});
+  bot.on("time", function () {
+    bot.setControlState("jump", true);
+  });
   bot.on("chat", (user, message) => {
     if (user == username) return;
     console.log(user + ":" + message);
