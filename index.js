@@ -20,14 +20,14 @@ var bota = mineflayer.createBot({
 var pi = 3.14159;
 events(bota);
 function events(bot) {
+  input(bot);
   function input(bot) {
     rl.question(":", function (name) {
       bot.chat(name);
       input(bot);
     });
   }
-  bot.on("time", function () {
-  });
+  bot.on("time", function () {});
   bot.on("chat", (user, message) => {
     if (user == username) return;
     console.log(user + ":" + message);
@@ -60,14 +60,14 @@ function events(bot) {
     try {
       bot.quit();
     } catch (e) {}
-    bot = mineflayer.createBot({
+    bote = mineflayer.createBot({
       host: host,
       port: port,
       username: username,
       password: password,
     });
     console.log("Reconnected");
-    events(bot);
+    events(bote);
     await setTimeout[Object.getOwnPropertySymbols(setTimeout)[0]](2000);
     joined = true;
   });
