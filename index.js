@@ -28,9 +28,7 @@ function events(bot) {
       input(bot);
     });
   }
-  bot.on("time", function () {
     bot.setControlState("jump", true);
-  });
   bot.on("chat", (user, message) => {
     if (user == username) return;
     console.log(user + ":" + message);
