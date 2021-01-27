@@ -27,7 +27,6 @@ function events(bot) {
     });
   }
   bot.on("time", function () {
-    bot.move();
   });
   bot.on("chat", (user, message) => {
     if (user == username) return;
