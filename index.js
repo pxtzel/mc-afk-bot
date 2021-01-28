@@ -6,19 +6,15 @@ const rl = readline.createInterface({
 
 var mineflayer = require("mineflayer");
 let joined = false;
-var host = "peaklime.aternos.me";
-var port = 25565;
+var host = "mc.dantoast.xyz";
 var username = "PeakBot";
 var password = "";
 // code start
 var bota = mineflayer.createBot({
   host: host,
-  port: port, // optional
   username: username,
   password: password,
-});
-bota;
-var pi = 3.14159;
+})
 events(bota);
 function events(bot) {
   input(bot);
@@ -63,7 +59,6 @@ function events(bot) {
     } catch (e) {}
     bote = mineflayer.createBot({
       host: host,
-      port: port,
       username: username,
       password: password,
     });
