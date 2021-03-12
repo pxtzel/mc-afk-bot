@@ -1,5 +1,4 @@
 const mc = require("mineflayer");
-var mineflayer = require('mineflayer');
 const config = require("../config.json");
 
 const { port, ip, botName } = config.server;

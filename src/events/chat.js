@@ -21,7 +21,7 @@ module.exports = (bot, author, message) => {
       command.run(message, args, bot, prefix);
     } catch (e) {
       logger.error("An error occured");
-      logger.error(e);
+      console.log(e);
       bot.chat("Uh oh! An error occured while running that command!");
     }
   }
