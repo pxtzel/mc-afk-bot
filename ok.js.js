@@ -13,7 +13,7 @@ app.listen(porte, () => {
 });
 var mineflayer = require("mineflayer");
 let joined = false;
-var host = "mc.dantoast.xyz";
+var host = "";
 var port = 25565;
 var username = "PeakBot";
 var password = "";

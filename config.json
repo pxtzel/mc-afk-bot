@@ -1,0 +1,10 @@
+{
+  "server": {
+    "ip": "localhost",
+    "port": 25565,
+    "botName": "Pitzot V2"
+  },
+  "api": {
+    "port": 255
+  }
+}
