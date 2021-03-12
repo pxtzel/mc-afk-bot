@@ -1,4 +1,5 @@
 const chatLog = new (require("../utils/chat"))();
+const logger = new (require("../utils/logger"))("Message");
 module.exports = (bot, author, message) => {
   const { prefix } = bot.config;
   chatLog.chat(author, message);
@@ -12,6 +13,12 @@ module.exports = (bot, author, message) => {
       (comd) => comd.aliases && comd.aliases.includes(cmd)
     );
   if (command) {
-    console.log("BRUH");
+    try {
+      command.run(message, args, bot, prefix);
+    } catch (e) {
+      logger.error("An error occured");
+      logger.error(e);
+      bot.chat("Uh oh! An error occured while running that command!");
+    }
   }
 };

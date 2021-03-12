@@ -1,4 +1,6 @@
 module.exports = {
   name: "hello",
-  run: (bot) => {},
+  run: (message, args, bot) => {
+    bot.chat("Hello!");
+  },
 };
