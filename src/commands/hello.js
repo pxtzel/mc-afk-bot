@@ -1,3 +1,4 @@
-module.exports = (bot) => {
-    
+module.exports = {
+  name: "hello",
+  run: (bot) => {},
 };
