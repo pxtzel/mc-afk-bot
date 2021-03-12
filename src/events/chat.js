@@ -13,6 +13,10 @@ module.exports = (bot, author, message) => {
       (comd) => comd.aliases && comd.aliases.includes(cmd)
     );
   if (command) {
+    message = {
+      message,
+      author,
+    };
     try {
       command.run(message, args, bot, prefix);
     } catch (e) {
