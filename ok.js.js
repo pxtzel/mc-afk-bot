@@ -69,14 +69,4 @@ function events(bot) {
     await setTimeout[Object.getOwnPropertySymbols(setTimeout)[0]](2000);
     joined = true;
   });
-  function command(message, bot) {
-    const msg = message.toLowerCase();
-    if (!msg.startsWith("!")) return;
-    const args = message.slice(1).trim().split(/ +/);
-    const cmd = args.shift().toLowerCase();
-    if (cmd == "say") {
-      if (!args[0]) return bot.chat("Say what?");
-      bot.chat(args.join(" "));
-    }
-  }
 }

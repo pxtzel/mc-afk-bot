@@ -1,7 +1,4 @@
 module.exports = (bot) => {
-  const playerFilter = (entity) => {
-    entity.type === "player";
-  };
   const player = bot.nearestEntity();
 
   if (!player || player.type !== "player") return;
