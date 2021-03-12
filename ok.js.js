@@ -3,17 +3,9 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
-const app = require("express")();
-
-const bodyParser = require("body-parser");
-const porte = 5472;
-app.use(bodyParser.urlencoded({ extended: true }));
-app.listen(porte, () => {
-  console.log(`Command get on http://localhost:${porte}`);
-});
 var mineflayer = require("mineflayer");
 let joined = false;
-var host = "";
+var host = "localhost";
 var port = 25565;
 var username = "PeakBot";
 var password = "";
@@ -24,13 +16,7 @@ var bota = mineflayer.createBot({
   password: password,
 });
 events(bota);
-app.get("/chat", (req, res) => {
-  if (!bota) return res.send("Bot offline");
-  if (!req.query.txt) return res.send("No text");
-  bota.chat(req.query.txt);
 
-  res.send("OK");
-});
 function events(bot) {
   input(bot);
   function input(bot) {

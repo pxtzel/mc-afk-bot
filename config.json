@@ -4,6 +4,9 @@
     "port": 25565,
     "botName": "Pitzot V2"
   },
+  "bot": {
+    "prefix": "!"
+  },
   "api": {
     "port": 255
   }

@@ -12,7 +12,7 @@ let bot = mc.createBot({
 
 bot.commands = new Map();
 bot.aliases = new Map();
-
+bot.config = config.bot;
 ["command", "event"].forEach((handler) => {
   require(`./handlers/${handler}`)(bot);
 });
